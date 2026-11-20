@@ -2,42 +2,40 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
-import { Scissors, ShieldCheck, Award, Heart, CheckCircle2, MapPin } from 'lucide-react';
+import { ShieldCheck, Award, Heart } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AppointmentModal from '@/components/AppointmentModal';
 import MobileBottomBar from '@/components/MobileBottomBar';
-import { SALOON_CONFIG } from '@/lib/data';
 
 export default function AboutPage() {
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
-    <div className="min-h-screen flex flex-col bg-dark-950 text-slate-100">
+    <div className="min-h-screen flex flex-col bg-dark-950 text-slate-100 overflow-x-hidden w-full max-w-full">
       <Navbar onOpenBooking={() => setModalOpen(true)} />
 
-      <main className="flex-1 py-12 sm:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16 sm:space-y-24">
+      <main className="flex-1 py-10 sm:py-20 pb-24 sm:pb-10 overflow-x-hidden w-full max-w-full">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 sm:space-y-20 w-full">
           
           {/* Header */}
-          <div className="text-center max-w-3xl mx-auto space-y-4">
+          <div className="text-center max-w-3xl mx-auto space-y-3.5">
             <span className="text-[11px] font-bold uppercase tracking-widest text-gold px-3 py-1 rounded-full bg-gold/10 border border-gold/30">
               Our Heritage & Philosophy
             </span>
-            <h1 className="font-editorial text-4xl sm:text-6xl font-bold text-white">
+            <h1 className="font-editorial text-3xl xs:text-4xl sm:text-6xl font-bold text-white break-words">
               The Story of <br />
               <span className="gold-gradient-text italic">Sri Venkateswara Saloon</span>
             </h1>
-            <p className="text-slate-300 text-sm sm:text-base font-light leading-relaxed">
+            <p className="text-slate-300 text-xs sm:text-base font-light leading-relaxed">
               Serving the gentlemen, youth, and families of Gulmohar Park Colony, Serilingampally, and Nallagandla with steadfast dedication to master barbering.
             </p>
           </div>
 
           {/* Narrative Grid */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center w-full">
             
-            <div className="lg:col-span-6 relative h-[420px] rounded-3xl overflow-hidden border border-white/[0.08]">
+            <div className="lg:col-span-6 relative h-64 sm:h-[400px] rounded-3xl overflow-hidden border border-white/[0.08] w-full">
               <Image
                 src="https://images.unsplash.com/photo-1585747860715-2ba37e788b70?auto=format&fit=crop&w=1000&q=80"
                 alt="Craft Barbering"
@@ -46,22 +44,22 @@ export default function AboutPage() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/20 to-transparent" />
               
-              <div className="absolute bottom-6 left-6 right-6 p-4 rounded-2xl bg-dark-950/85 backdrop-blur-md border border-white/[0.08]">
-                <div className="font-editorial text-lg font-bold text-white">
+              <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 p-3.5 sm:p-4 rounded-2xl bg-dark-950/85 backdrop-blur-md border border-white/[0.08]">
+                <div className="font-editorial text-base sm:text-lg font-bold text-white">
                   Craftsmanship Over Speed
                 </div>
-                <div className="text-xs text-slate-300 font-light mt-0.5">
-                  Every haircut is evaluated against your cranial shape and lifestyle needs.
+                <div className="text-[11px] sm:text-xs text-slate-300 font-light mt-0.5">
+                  Every haircut is tailored to your cranial shape and lifestyle needs.
                 </div>
               </div>
             </div>
 
-            <div className="lg:col-span-6 space-y-6">
+            <div className="lg:col-span-6 space-y-5 text-center lg:text-left">
               <span className="text-xs font-bold uppercase tracking-widest text-gold">
                 Founded on Respect & Craft
               </span>
 
-              <h2 className="font-editorial text-3xl sm:text-4xl font-bold text-white leading-tight">
+              <h2 className="font-editorial text-2xl xs:text-3xl sm:text-4xl font-bold text-white leading-tight">
                 A Neighborhood Pillar in Gulmohar Park Colony
               </h2>
 
@@ -73,15 +71,15 @@ export default function AboutPage() {
                 Whether you are stepping in for a quick low skin fade before a crucial presentation, bringing your young child for their relaxed weekend haircut, or taking an hour to unwind with our signature Ayurvedic cooling head spa, our stylists take personal pride in every stroke of the scissors.
               </p>
 
-              <div className="grid grid-cols-2 gap-4 pt-2">
-                <div className="p-4 rounded-2xl bg-dark-900 border border-white/[0.06] space-y-1">
-                  <div className="font-editorial text-2xl font-bold text-gold">15,000+</div>
-                  <div className="text-xs text-slate-400">Gentlemen Groomed</div>
+              <div className="grid grid-cols-2 gap-3 pt-1">
+                <div className="p-3.5 rounded-2xl bg-dark-900 border border-white/[0.06] space-y-0.5">
+                  <div className="font-editorial text-xl sm:text-2xl font-bold text-gold">15,000+</div>
+                  <div className="text-[11px] text-slate-400">Gentlemen Groomed</div>
                 </div>
 
-                <div className="p-4 rounded-2xl bg-dark-900 border border-white/[0.06] space-y-1">
-                  <div className="font-editorial text-2xl font-bold text-emerald-400">12+ Years</div>
-                  <div className="text-xs text-slate-400">Local Community Trust</div>
+                <div className="p-3.5 rounded-2xl bg-dark-900 border border-white/[0.06] space-y-0.5">
+                  <div className="font-editorial text-xl sm:text-2xl font-bold text-emerald-400">12+ Years</div>
+                  <div className="text-[11px] text-slate-400">Community Trust</div>
                 </div>
               </div>
             </div>
@@ -89,23 +87,23 @@ export default function AboutPage() {
           </div>
 
           {/* Three Cornerstones */}
-          <div className="space-y-8">
+          <div className="space-y-6 sm:space-y-8 w-full">
             <div className="text-center max-w-xl mx-auto space-y-2">
-              <h3 className="font-editorial text-3xl font-bold text-white">
-                Our Three Unbreakable Pledges
+              <h3 className="font-editorial text-2xl sm:text-3xl font-bold text-white">
+                Our Three Pledges
               </h3>
               <p className="text-xs text-slate-400">
                 The standards that define every visit to Sri Venkateswara Hair Saloon.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 w-full">
               
-              <div className="p-8 rounded-3xl bg-dark-900 border border-white/[0.08] space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
+              <div className="p-6 sm:p-8 rounded-3xl bg-dark-900 border border-white/[0.08] space-y-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center">
                   <ShieldCheck className="w-6 h-6" />
                 </div>
-                <h4 className="font-editorial text-xl font-bold text-white">
+                <h4 className="font-editorial text-lg sm:text-xl font-bold text-white">
                   100% Sterile Blade Guarantee
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
@@ -113,11 +111,11 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="p-8 rounded-3xl bg-dark-900 border border-white/[0.08] space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-gold/10 border border-gold/20 text-gold flex items-center justify-center">
+              <div className="p-6 sm:p-8 rounded-3xl bg-dark-900 border border-white/[0.08] space-y-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-gold/10 border border-gold/20 text-gold flex items-center justify-center">
                   <Award className="w-6 h-6" />
                 </div>
-                <h4 className="font-editorial text-xl font-bold text-white">
+                <h4 className="font-editorial text-lg sm:text-xl font-bold text-white">
                   Sartorial Consultation
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
@@ -125,11 +123,11 @@ export default function AboutPage() {
                 </p>
               </div>
 
-              <div className="p-8 rounded-3xl bg-dark-900 border border-white/[0.08] space-y-4">
-                <div className="w-12 h-12 rounded-2xl bg-crimson/10 border border-crimson/20 text-red-400 flex items-center justify-center">
+              <div className="p-6 sm:p-8 rounded-3xl bg-dark-900 border border-white/[0.08] space-y-3.5">
+                <div className="w-11 h-11 rounded-2xl bg-crimson/10 border border-crimson/20 text-red-400 flex items-center justify-center">
                   <Heart className="w-6 h-6" />
                 </div>
-                <h4 className="font-editorial text-xl font-bold text-white">
+                <h4 className="font-editorial text-lg sm:text-xl font-bold text-white">
                   Welcoming Family Ambience
                 </h4>
                 <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">

@@ -22,56 +22,55 @@ export default function HomePage() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-dark-950 text-slate-100">
+    <div className="min-h-screen flex flex-col bg-dark-950 text-slate-100 overflow-x-hidden w-full max-w-full">
       <Navbar onOpenBooking={() => openBooking()} />
 
-      <main className="flex-1">
+      <main className="flex-1 pb-24 sm:pb-0 overflow-x-hidden w-full max-w-full">
         {/* HERO SECTION */}
-        <section className="relative overflow-hidden pt-12 pb-20 sm:pt-20 sm:pb-32 bg-dark-950">
+        <section className="relative overflow-hidden pt-8 pb-16 sm:pt-20 sm:pb-28 bg-dark-950 w-full">
           {/* Subtle Ambient Radial Lighting */}
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-radial-gradient pointer-events-none" />
-          <div className="absolute top-1/3 left-10 w-[350px] h-[350px] bg-gold/5 rounded-full blur-[140px] pointer-events-none" />
-          <div className="absolute top-1/4 right-10 w-[300px] h-[300px] bg-crimson/10 rounded-full blur-[140px] pointer-events-none" />
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-[600px] h-[350px] bg-radial-gradient pointer-events-none opacity-60" />
+          <div className="absolute top-1/4 right-0 w-[200px] h-[200px] bg-crimson/10 rounded-full blur-[100px] pointer-events-none" />
 
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
               
               {/* Left Column: Editorial Manifesto */}
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-                className="lg:col-span-7 space-y-6 sm:space-y-8"
+                transition={{ duration: 0.7 }}
+                className="lg:col-span-7 space-y-6 sm:space-y-8 text-center lg:text-left flex flex-col items-center lg:items-start w-full"
               >
                 {/* Status + Location Pill */}
-                <div className="flex flex-wrap items-center gap-3">
+                <div className="flex flex-wrap items-center justify-center lg:justify-start gap-2.5 max-w-full">
                   <LiveStatusPill withHours={true} />
                   <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-white/[0.04] border border-white/[0.08] text-slate-300">
-                    <MapPin className="w-3.5 h-3.5 text-red-400" />
-                    <span>Gulmohar Park Colony, Hyderabad</span>
+                    <MapPin className="w-3.5 h-3.5 text-red-400 flex-shrink-0" />
+                    <span className="truncate">Gulmohar Park Colony, Hyderabad</span>
                   </div>
                 </div>
 
                 {/* Editorial Headline */}
-                <div className="space-y-4">
-                  <h1 className="font-editorial text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.08]">
+                <div className="space-y-3.5 w-full">
+                  <h1 className="font-editorial text-3xl xs:text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.12] break-words">
                     Mastering The Art of <br />
                     <span className="gold-gradient-text italic">Distinguished</span> <br />
                     Grooming.
                   </h1>
-                  <p className="text-base sm:text-lg text-slate-300 max-w-xl font-light leading-relaxed">
+                  <p className="text-sm sm:text-lg text-slate-300 max-w-xl mx-auto lg:mx-0 font-light leading-relaxed">
                     Step inside <strong className="text-white font-semibold">Sri Venkateswara Hair Saloon</strong> — where time-honored barbering tradition meets modern precision. Experience tailored scissor architecture, razor skin fades, hot towel shaves, and cooling head spas in a climate-controlled studio.
                   </p>
                 </div>
 
                 {/* Statistics Row */}
-                <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-3 border-y border-white/[0.08]">
+                <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 py-4 border-y border-white/[0.08] w-full">
                   {SALOON_CONFIG.stats.map((s, idx) => (
-                    <div key={idx} className="space-y-0.5">
-                      <div className="font-editorial text-2xl sm:text-3xl font-bold text-gold">
+                    <div key={idx} className="space-y-0.5 text-center lg:text-left">
+                      <div className="font-editorial text-xl sm:text-3xl font-bold text-gold">
                         {s.value}
                       </div>
-                      <div className="text-[11px] text-slate-400 uppercase tracking-wider">
+                      <div className="text-[10px] sm:text-[11px] text-slate-400 uppercase tracking-wider">
                         {s.label}
                       </div>
                     </div>
@@ -79,10 +78,10 @@ export default function HomePage() {
                 </div>
 
                 {/* Main CTAs */}
-                <div className="flex flex-wrap items-center gap-3 pt-2">
+                <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3 w-full sm:w-auto pt-1">
                   <button
                     onClick={() => openBooking()}
-                    className="flex items-center gap-2.5 px-7 py-4 rounded-2xl text-xs uppercase tracking-widest font-bold text-dark-950 bg-gradient-to-r from-gold via-gold-light to-gold shadow-xl shadow-gold/20 hover:brightness-110 active:scale-95 transition-all"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2.5 px-7 py-3.5 sm:py-4 rounded-2xl text-xs uppercase tracking-widest font-bold text-dark-950 bg-gradient-to-r from-gold via-gold-light to-gold shadow-xl shadow-gold/20 hover:brightness-110 active:scale-95 transition-all"
                   >
                     <Scissors className="w-4 h-4 text-dark-950" />
                     <span>Book Your Session</span>
@@ -90,7 +89,7 @@ export default function HomePage() {
 
                   <Link
                     href="/services"
-                    className="flex items-center gap-2 px-6 py-4 rounded-2xl text-xs uppercase tracking-widest font-semibold text-slate-200 bg-white/[0.05] hover:bg-white/[0.09] border border-white/[0.09] transition-all"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-6 py-3.5 sm:py-4 rounded-2xl text-xs uppercase tracking-widest font-semibold text-slate-200 bg-white/[0.05] hover:bg-white/[0.09] border border-white/[0.09] transition-all"
                   >
                     <span>Explore Services</span>
                     <ArrowRight className="w-4 h-4 text-gold" />
@@ -100,10 +99,10 @@ export default function HomePage() {
                     href={`https://wa.me/${SALOON_CONFIG.whatsappNumber}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-5 py-4 rounded-2xl text-xs uppercase tracking-widest font-semibold text-emerald-300 bg-emerald-950/40 hover:bg-emerald-900/40 border border-emerald-500/30 transition-all"
+                    className="w-full sm:w-auto flex items-center justify-center gap-2 px-5 py-3.5 sm:py-4 rounded-2xl text-xs uppercase tracking-widest font-semibold text-emerald-300 bg-emerald-950/40 hover:bg-emerald-900/40 border border-emerald-500/30 transition-all"
                   >
                     <MessageSquare className="w-4 h-4 text-emerald-400" />
-                    <span className="hidden sm:inline">WhatsApp</span>
+                    <span>WhatsApp</span>
                   </a>
                 </div>
               </motion.div>
@@ -112,18 +111,18 @@ export default function HomePage() {
               <motion.div
                 initial={{ opacity: 0, scale: 0.96 }}
                 animate={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 0.9, delay: 0.2 }}
-                className="lg:col-span-5 relative"
+                transition={{ duration: 0.8, delay: 0.15 }}
+                className="lg:col-span-5 relative w-full"
               >
-                <div className="relative rounded-3xl overflow-hidden border border-white/[0.1] bg-dark-900 shadow-2xl p-7 space-y-6">
+                <div className="relative rounded-3xl overflow-hidden border border-white/[0.1] bg-dark-900 shadow-2xl p-5 sm:p-7 space-y-5 w-full">
                   
                   {/* Image Collage Card */}
-                  <div className="relative h-64 sm:h-72 w-full rounded-2xl overflow-hidden border border-white/[0.08]">
+                  <div className="relative h-56 sm:h-72 w-full rounded-2xl overflow-hidden border border-white/[0.08]">
                     <Image
                       src="https://images.unsplash.com/photo-1503951914875-452162b0f3f1?auto=format&fit=crop&w=900&q=80"
                       alt="Barbershop Craftsmanship"
                       fill
-                      className="object-cover transition-transform duration-700 hover:scale-105"
+                      className="object-cover"
                       priority
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/40 to-transparent" />
@@ -133,15 +132,15 @@ export default function HomePage() {
                         <span className="text-[10px] font-bold uppercase tracking-widest text-gold px-2 py-0.5 rounded bg-dark-950/80 border border-gold/30">
                           Bespoke Studio
                         </span>
-                        <div className="font-editorial text-lg font-bold text-white mt-1">
+                        <div className="font-editorial text-base sm:text-lg font-bold text-white mt-1">
                           Sri Venkateswara Saloon
                         </div>
-                        <div className="text-[11px] text-slate-300">
+                        <div className="text-[10px] sm:text-[11px] text-slate-300">
                           Gulmohar Park Colony • Hyderabad
                         </div>
                       </div>
                       <div className="text-right">
-                        <span className="text-xs px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 font-semibold border border-emerald-500/30">
+                        <span className="text-[10px] sm:text-xs px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 font-semibold border border-emerald-500/30">
                           Walk-ins Welcome
                         </span>
                       </div>
@@ -149,33 +148,33 @@ export default function HomePage() {
                   </div>
 
                   {/* Highlights Grid */}
-                  <div className="grid grid-cols-2 gap-3 text-xs">
-                    <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.06] space-y-1">
-                      <div className="text-gold font-bold">❄️ Climate Controlled</div>
-                      <div className="text-slate-400 text-[11px]">Chilled split AC studio</div>
+                  <div className="grid grid-cols-2 gap-2.5 text-xs">
+                    <div className="p-3 rounded-2xl bg-white/[0.03] border border-white/[0.06] space-y-1">
+                      <div className="text-gold font-bold text-xs">❄️ Full AC Comfort</div>
+                      <div className="text-slate-400 text-[10px] sm:text-[11px]">Chilled split AC studio</div>
                     </div>
 
-                    <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.06] space-y-1">
-                      <div className="text-gold font-bold">🪒 Fresh Sterile Blades</div>
-                      <div className="text-slate-400 text-[11px]">Single-use for every client</div>
+                    <div className="p-3 rounded-2xl bg-white/[0.03] border border-white/[0.06] space-y-1">
+                      <div className="text-gold font-bold text-xs">🪒 Sterile Blades</div>
+                      <div className="text-slate-400 text-[10px] sm:text-[11px]">Single-use for every client</div>
                     </div>
 
-                    <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.06] space-y-1">
-                      <div className="text-gold font-bold">📺 HD Entertainment</div>
-                      <div className="text-slate-400 text-[11px]">Cricket & movies in chair</div>
+                    <div className="p-3 rounded-2xl bg-white/[0.03] border border-white/[0.06] space-y-1">
+                      <div className="text-gold font-bold text-xs">📺 Entertainment</div>
+                      <div className="text-slate-400 text-[10px] sm:text-[11px]">Cricket & movies in chair</div>
                     </div>
 
-                    <div className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/[0.06] space-y-1">
-                      <div className="text-gold font-bold">⏰ Open 7 Days</div>
-                      <div className="text-slate-400 text-[11px]">8:00 AM – 9:30 PM</div>
+                    <div className="p-3 rounded-2xl bg-white/[0.03] border border-white/[0.06] space-y-1">
+                      <div className="text-gold font-bold text-xs">⏰ Open 7 Days</div>
+                      <div className="text-slate-400 text-[10px] sm:text-[11px]">8:00 AM – 9:30 PM</div>
                     </div>
                   </div>
 
                   {/* Bottom Action */}
-                  <div className="pt-1 flex items-center justify-between text-xs">
+                  <div className="pt-1 flex items-center justify-center sm:justify-between text-xs">
                     <Link
                       href="/timings"
-                      className="text-gold hover:underline font-semibold flex items-center gap-1"
+                      className="text-gold hover:underline font-semibold flex items-center gap-1 text-center"
                     >
                       <span>Check Today's Wait Times & Schedule</span>
                       <ChevronRight className="w-3.5 h-3.5" />
@@ -189,13 +188,13 @@ export default function HomePage() {
         </section>
 
         {/* PILLARS OF EXCELLENCE */}
-        <section className="py-16 sm:py-24 bg-dark-900 border-t border-white/[0.06]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+        <section className="py-16 sm:py-24 bg-dark-900 border-t border-white/[0.06] w-full overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14 space-y-3">
               <span className="text-[11px] font-bold uppercase tracking-widest text-gold px-3 py-1 rounded-full bg-gold/10 border border-gold/30">
                 Studio Standards
               </span>
-              <h2 className="font-editorial text-3xl sm:text-5xl font-bold text-white">
+              <h2 className="font-editorial text-2xl xs:text-3xl sm:text-5xl font-bold text-white">
                 The Heritage of Pure Craft
               </h2>
               <p className="text-slate-400 text-xs sm:text-sm font-light">
@@ -203,16 +202,16 @@ export default function HomePage() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 w-full">
               {SALOON_PILLARS.map((p, idx) => (
                 <div
                   key={idx}
-                  className="p-7 rounded-3xl bg-dark-950 border border-white/[0.06] luxury-card-hover space-y-3"
+                  className="p-6 sm:p-7 rounded-3xl bg-dark-950 border border-white/[0.06] luxury-card-hover space-y-3"
                 >
-                  <div className="w-12 h-12 rounded-2xl bg-gold/10 border border-gold/20 flex items-center justify-center text-gold mb-4">
-                    <Sparkles className="w-6 h-6 text-gold-light" />
+                  <div className="w-11 h-11 rounded-2xl bg-gold/10 border border-gold/20 flex items-center justify-center text-gold mb-3">
+                    <Sparkles className="w-5 h-5 text-gold-light" />
                   </div>
-                  <h3 className="font-editorial text-xl font-bold text-white">
+                  <h3 className="font-editorial text-lg sm:text-xl font-bold text-white">
                     {p.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed">
@@ -224,15 +223,15 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* FEATURED SERVICES PREVIEW (NO PRICES) */}
-        <section className="py-20 sm:py-28 bg-dark-950 border-t border-white/[0.06]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
-              <div className="space-y-3 max-w-xl">
+        {/* FEATURED SERVICES PREVIEW */}
+        <section className="py-16 sm:py-28 bg-dark-950 border-t border-white/[0.06] w-full overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-12 text-center md:text-left">
+              <div className="space-y-2.5 max-w-xl mx-auto md:mx-0">
                 <span className="text-[11px] font-bold uppercase tracking-widest text-gold px-3 py-1 rounded-full bg-gold/10 border border-gold/30">
                   Curated Rituals
                 </span>
-                <h2 className="font-editorial text-3xl sm:text-5xl font-bold text-white">
+                <h2 className="font-editorial text-2xl xs:text-3xl sm:text-5xl font-bold text-white">
                   Distinguished Grooming Services
                 </h2>
                 <p className="text-slate-400 text-xs sm:text-sm font-light">
@@ -242,28 +241,28 @@ export default function HomePage() {
 
               <Link
                 href="/services"
-                className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-gold hover:text-gold-light group"
+                className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-bold text-gold hover:text-gold-light group"
               >
                 <span>View Full Services Catalog</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
 
-            {/* Service Cards Grid (NO PRICES) */}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Service Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full">
               {SERVICES_CATALOG.slice(0, 6).map((service) => (
                 <div
                   key={service.id}
-                  className="rounded-3xl overflow-hidden bg-dark-900 border border-white/[0.08] luxury-card-hover flex flex-col justify-between"
+                  className="rounded-3xl overflow-hidden bg-dark-900 border border-white/[0.08] luxury-card-hover flex flex-col justify-between w-full"
                 >
                   <div>
                     {/* Image Header */}
-                    <div className="relative h-48 w-full overflow-hidden">
+                    <div className="relative h-44 sm:h-48 w-full overflow-hidden">
                       <Image
                         src={service.image}
                         alt={service.name}
                         fill
-                        className="object-cover transition-transform duration-500 hover:scale-105"
+                        className="object-cover"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-dark-900 via-dark-900/20 to-transparent" />
                       
@@ -283,9 +282,9 @@ export default function HomePage() {
                     </div>
 
                     {/* Content */}
-                    <div className="p-6 space-y-3">
+                    <div className="p-5 sm:p-6 space-y-3">
                       <div className="flex items-center gap-2 text-xs text-slate-400">
-                        <Clock className="w-3.5 h-3.5 text-gold" />
+                        <Clock className="w-3.5 h-3.5 text-gold flex-shrink-0" />
                         <span>Duration: {service.duration}</span>
                       </div>
 
@@ -309,10 +308,10 @@ export default function HomePage() {
                   </div>
 
                   {/* Card Footer */}
-                  <div className="p-6 pt-0">
+                  <div className="p-5 sm:p-6 pt-0">
                     <button
                       onClick={() => openBooking(service.id)}
-                      className="w-full py-2.5 rounded-xl bg-white/[0.04] hover:bg-gold hover:text-dark-950 text-slate-200 text-xs uppercase font-bold tracking-wider border border-white/[0.08] transition-all"
+                      className="w-full py-3 rounded-xl bg-white/[0.04] hover:bg-gold hover:text-dark-950 text-slate-200 text-xs uppercase font-bold tracking-wider border border-white/[0.08] transition-all"
                     >
                       Reserve This Ritual
                     </button>
@@ -324,35 +323,35 @@ export default function HomePage() {
         </section>
 
         {/* HAIR STYLE LOOKBOOK PREVIEW */}
-        <section className="py-20 sm:py-28 bg-dark-900 border-t border-white/[0.06]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
-              <div className="space-y-3 max-w-xl">
+        <section className="py-16 sm:py-28 bg-dark-900 border-t border-white/[0.06] w-full overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="flex flex-col md:flex-row md:items-end justify-between gap-5 mb-12 text-center md:text-left">
+              <div className="space-y-2.5 max-w-xl mx-auto md:mx-0">
                 <span className="text-[11px] font-bold uppercase tracking-widest text-gold px-3 py-1 rounded-full bg-gold/10 border border-gold/30">
                   Lookbook Catalog
                 </span>
-                <h2 className="font-editorial text-3xl sm:text-5xl font-bold text-white">
+                <h2 className="font-editorial text-2xl xs:text-3xl sm:text-5xl font-bold text-white">
                   Signature Hair & Beard Cuts
                 </h2>
                 <p className="text-slate-400 text-xs sm:text-sm font-light">
-                  Find the exact hairstyle that elevates your face geometry, whether you prefer modern fades or timeless scissor tapers.
+                  Find the exact hairstyle that elevates your face geometry, whether you prefer modern skin fades or timeless scissor tapers.
                 </p>
               </div>
 
               <Link
                 href="/styles"
-                className="inline-flex items-center gap-2 text-xs uppercase tracking-wider font-bold text-gold hover:text-gold-light group"
+                className="inline-flex items-center justify-center gap-2 text-xs uppercase tracking-wider font-bold text-gold hover:text-gold-light group"
               >
                 <span>Explore Complete Lookbook</span>
                 <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full">
               {HAIRCUT_STYLES.slice(0, 3).map((style) => (
                 <div
                   key={style.id}
-                  className="rounded-3xl overflow-hidden bg-dark-950 border border-white/[0.08] luxury-card-hover p-6 flex flex-col justify-between space-y-4"
+                  className="rounded-3xl overflow-hidden bg-dark-950 border border-white/[0.08] luxury-card-hover p-5 sm:p-6 flex flex-col justify-between space-y-4 w-full"
                 >
                   <div className="space-y-3">
                     <div className="relative h-44 w-full rounded-2xl overflow-hidden">
@@ -392,7 +391,7 @@ export default function HomePage() {
 
                   <button
                     onClick={() => openBooking()}
-                    className="w-full py-2.5 rounded-xl bg-white/[0.05] hover:bg-gold hover:text-dark-950 text-slate-200 text-xs uppercase font-bold tracking-wider transition-all"
+                    className="w-full py-3 rounded-xl bg-white/[0.05] hover:bg-gold hover:text-dark-950 text-slate-200 text-xs uppercase font-bold tracking-wider transition-all"
                   >
                     Request This Style
                   </button>
@@ -403,28 +402,28 @@ export default function HomePage() {
         </section>
 
         {/* TESTIMONIALS */}
-        <section className="py-20 sm:py-24 bg-dark-950 border-t border-white/[0.06]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center max-w-2xl mx-auto mb-14 space-y-3">
+        <section className="py-16 sm:py-24 bg-dark-950 border-t border-white/[0.06] w-full overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-14 space-y-3">
               <span className="text-[11px] font-bold uppercase tracking-widest text-gold px-3 py-1 rounded-full bg-gold/10 border border-gold/30">
                 Community Trust
               </span>
-              <h2 className="font-editorial text-3xl sm:text-5xl font-bold text-white">
-                Words From Gentlemen of Hyderabad
+              <h2 className="font-editorial text-2xl xs:text-3xl sm:text-5xl font-bold text-white">
+                Words From Hyderabad Gentlemen
               </h2>
-              <div className="flex items-center justify-center gap-1.5 pt-2">
+              <div className="flex items-center justify-center gap-1.5 pt-1">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="w-4 h-4 fill-gold text-gold" />
                 ))}
-                <span className="text-xs font-bold text-slate-200 ml-2">4.8 / 5.0 Star Rating</span>
+                <span className="text-xs font-bold text-slate-200 ml-2">4.8 / 5.0 Rating</span>
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 w-full">
               {TESTIMONIALS_DATA.map((item, idx) => (
                 <div
                   key={idx}
-                  className="p-7 rounded-3xl bg-dark-900 border border-white/[0.08] flex flex-col justify-between space-y-5"
+                  className="p-6 sm:p-7 rounded-3xl bg-dark-900 border border-white/[0.08] flex flex-col justify-between space-y-4"
                 >
                   <p className="text-xs sm:text-sm text-slate-200 font-light leading-relaxed italic">
                     "{item.quote}"
@@ -446,36 +445,36 @@ export default function HomePage() {
         </section>
 
         {/* LOCATION & HOURS CALLOUT */}
-        <section className="py-20 bg-dark-900 border-t border-white/[0.06]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="rounded-3xl bg-dark-950 border border-white/[0.1] p-8 sm:p-12 relative overflow-hidden">
+        <section className="py-14 sm:py-20 bg-dark-900 border-t border-white/[0.06] w-full overflow-hidden">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div className="rounded-3xl bg-dark-950 border border-white/[0.1] p-6 sm:p-12 relative overflow-hidden text-center sm:text-left">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
                 
                 <div className="lg:col-span-8 space-y-4">
-                  <div className="flex items-center gap-2">
+                  <div className="flex items-center justify-center sm:justify-start gap-2">
                     <LiveStatusPill withHours={false} />
                     <span className="text-xs text-slate-400">Open 7 Days • 8:00 AM – 9:30 PM</span>
                   </div>
 
-                  <h3 className="font-editorial text-3xl sm:text-4xl font-bold text-white">
-                    Visit Sri Venkateswara Saloon in Gulmohar Park Colony
+                  <h3 className="font-editorial text-2xl xs:text-3xl sm:text-4xl font-bold text-white">
+                    Visit Sri Venkateswara Saloon in Gulmohar Park
                   </h3>
                   
-                  <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl">
+                  <p className="text-xs sm:text-sm text-slate-300 font-light leading-relaxed max-w-2xl mx-auto sm:mx-0">
                     Located at Shop No. 3, Block L, near Netaji Nagar. Easily reachable from Lingampally MMTS Station (5 mins) and Nallagandla (6 mins) with convenient parking.
                   </p>
 
-                  <div className="pt-2 flex flex-wrap items-center gap-3">
+                  <div className="pt-2 flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-3">
                     <Link
                       href="/contact"
-                      className="px-6 py-3 rounded-xl bg-gold text-dark-950 text-xs uppercase font-bold tracking-wider hover:brightness-110 transition-all"
+                      className="w-full sm:w-auto text-center px-6 py-3 rounded-xl bg-gold text-dark-950 text-xs uppercase font-bold tracking-wider hover:brightness-110 transition-all"
                     >
                       Get Directions & Map
                     </Link>
 
                     <Link
                       href="/timings"
-                      className="px-6 py-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-slate-200 text-xs uppercase font-bold tracking-wider border border-white/[0.08] transition-all"
+                      className="w-full sm:w-auto text-center px-6 py-3 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-slate-200 text-xs uppercase font-bold tracking-wider border border-white/[0.08] transition-all"
                     >
                       View Rush Hours Guide
                     </Link>
@@ -485,9 +484,9 @@ export default function HomePage() {
                 <div className="lg:col-span-4 text-center lg:text-right">
                   <button
                     onClick={() => openBooking()}
-                    className="w-full sm:w-auto px-8 py-5 rounded-2xl bg-gradient-to-r from-crimson to-crimson-light text-white font-bold text-xs uppercase tracking-widest shadow-2xl hover:brightness-110 active:scale-95 transition-all"
+                    className="w-full sm:w-auto px-8 py-4 sm:py-5 rounded-2xl bg-gradient-to-r from-crimson to-crimson-light text-white font-bold text-xs uppercase tracking-widest shadow-2xl hover:brightness-110 active:scale-95 transition-all"
                   >
-                    Reserve In Advance
+                    Reserve on WhatsApp
                   </button>
                   <p className="text-[11px] text-slate-400 mt-2">
                     Walk-ins are welcomed throughout the day.

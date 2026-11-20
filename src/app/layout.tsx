@@ -5,7 +5,8 @@ export const viewport: Viewport = {
   themeColor: "#07090C",
   width: "device-width",
   initialScale: 1,
-  maximumScale: 5,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export const metadata: Metadata = {
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Sri Venkateswara Hair Saloon | Premier Grooming Studio",
     description: "Experience the art of modern men's haircutting and traditional barbering in Gulmohar Park Colony, Hyderabad.",
-    url: "https://sri-venkateswara-hair-saloon.com",
+    url: "https://dipankarmajee.github.io/sri-venkateswara-hair-saloon/",
     siteName: "Sri Venkateswara Hair Saloon",
     locale: "en_IN",
     type: "website",
@@ -37,7 +38,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
+    <html lang="en" className="scroll-smooth overflow-x-hidden w-full max-w-full">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -46,7 +47,7 @@ export default function RootLayout({
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased bg-dark-950 text-slate-100 min-h-screen flex flex-col selection:bg-gold selection:text-dark-950">
+      <body className="antialiased bg-dark-950 text-slate-100 min-h-screen flex flex-col selection:bg-gold selection:text-dark-950 overflow-x-hidden w-full max-w-full">
         {children}
       </body>
     </html>
