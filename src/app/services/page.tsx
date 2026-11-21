@@ -8,7 +8,7 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import AppointmentModal from '@/components/AppointmentModal';
 import MobileBottomBar from '@/components/MobileBottomBar';
-import { SERVICES_CATALOG, ServiceItem } from '@/lib/data';
+import { SERVICES_CATALOG, SALOON_CONFIG, ServiceItem } from '@/lib/data';
 
 export default function ServicesPage() {
   const [activeCategory, setActiveCategory] = useState<string>('all');
@@ -174,10 +174,10 @@ export default function ServicesPage() {
             </p>
             <div className="pt-1">
               <a
-                href="tel:+919490182345"
+                href={`tel:${SALOON_CONFIG.phone}`}
                 className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/[0.05] hover:bg-white/[0.1] text-gold border border-gold/30 text-xs uppercase font-bold tracking-wider"
               >
-                Call Concierge: +91 94901 82345
+                Call Concierge: {SALOON_CONFIG.phone}
               </a>
             </div>
           </div>

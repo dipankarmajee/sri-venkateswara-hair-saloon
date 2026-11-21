@@ -27,8 +27,8 @@ export const SALOON_CONFIG = {
   name: "Sri Venkateswara Hair Saloon",
   tagline: "The Art of Distinguished Grooming",
   subtitle: "Master Haircutters • Precision Beard Sculptors • Rejuvenating Head Spas",
-  phone: "+91 94901 82345",
-  whatsappNumber: "919490182345",
+  phone: "+91 93470 17507",
+  whatsappNumber: "919347017507",
   address: {
     shop: "Shop No. 3, Block L, Near Netaji Nagar",
     colony: "Gulmohar Park Colony",

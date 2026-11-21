@@ -287,7 +287,7 @@ export default function AppointmentModal({
               </div>
 
               <div className="text-[11px] text-center text-slate-400">
-                Direct WhatsApp message to Sri Venkateswara Hair Saloon (+91 94901 82345). Walk-ins are always welcomed!
+                Direct WhatsApp message to Sri Venkateswara Hair Saloon (+91 93470 17507). Walk-ins are always welcomed!
               </div>
             </form>
           </div>
